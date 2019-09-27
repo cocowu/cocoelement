@@ -4,12 +4,18 @@ import { request } from '../utils/request'
 export const requestLogin = params => {
   return request('/api/user/login', params).then(data => {
     localStorage.setItem('user-token', JSON.stringify(data.token))
+    console.debug('requestLogin rsp_data: ', data)
     return data
   })
 }
 
 export const requestRegister = params => {
   return request('/api/user/register', params)
+}
+
+export const requestUserInfo = params => {
+  console.debug('requestUserInfo req_params:', params)
+  return request('/api/user/info', params)
 }
 
 // export const requestUserInfo = params => {

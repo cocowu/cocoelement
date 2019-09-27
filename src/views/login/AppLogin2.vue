@@ -62,7 +62,7 @@ export default {
     handleSubmit (ev) {
       this.$refs.ruleForm.validate((valid) => {
         if (valid) {
-          this.logining = true
+          this.logining = true 
           const loginParams = { username: this.ruleForm.account, password: sha256(this.ruleForm.checkPass) }
           requestLogin(loginParams).then(data => {
             this.logining = false
@@ -70,6 +70,7 @@ export default {
               message: '登录成功！',
               type: 'success'
             })
+            console.debug('handleSubmit this.fromUrl: ', this.fromUrl)
             this.$router.push(this.fromUrl)
           }).catch(err => {
             this.logining = false

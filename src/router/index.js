@@ -23,7 +23,11 @@ const routerInit = (permissions) => {
 
 /* 检测用户是否有权限访问页面 */
 const pagePermission = (permissions, to, next) => {
-  const allowPage = permissions.some(function (v) {
+  console.debug('pagePermission:', permissions)
+  console.debug('pagePermission:', to)
+  console.debug('pagePermission:', next)
+  /* some()是对数组中每一项运行给定函数，如果该函数对任一项返回true，则返回true */
+  const allowPage = permissions.some(function (v) {  
     return v.name === to.name
   })
   allowPage ? next() : next({ path: '/error/403' })
@@ -31,6 +35,7 @@ const pagePermission = (permissions, to, next) => {
 
 /* 权限控制 */
 router.beforeEach((to, from, next) => {
+  console.info(to.path)
   /* 取消旧请求 */
   const CancelToken = axios.CancelToken
   router.app.$options.store.state.source.cancel && router.app.$options.store.state.source.cancel()
@@ -45,9 +50,11 @@ router.beforeEach((to, from, next) => {
     return next()
   }
   let permissions = router.app.$options.store.state.user.permissions
+  console.debug('router.beforeEach permissions:', permissions)
   /* 上次会话结束，重新获取用户信息 */
   if (!permissions.length) {
     /* 获取用户信息和权限 */
+    console.debug('router.beforeEach --> requestUserInfo')
     router.app.$options.store.dispatch('requestUserInfo').then(() => {
       permissions = router.app.$options.store.state.user.permissions || []
       routerInit(permissions)
