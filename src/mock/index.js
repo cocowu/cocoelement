@@ -17,17 +17,19 @@ export default {
     Mock.mock(BASE_PATH + '/api/user/register', {
       'code': 1
     })
-    Mock.mock('/api/user/info', {
+    Mock.mock(BASE_PATH + '/api/user/info', {
       'code': 1,
       'id': '100001',
       'name': '林锦泽',
       'roles': ['admin'],
       'permissions': [
         {
-          // 一个页面权限一个对象，name为静态路由表里面的name
-          name: '/index'
+          // 一个页面一个对象，以name确定（对应静态路由表里面的name）
+          name: 'index'
         }, {
-          name: '/user/show',
+          name: 'level4'
+        }, {
+          name: 'level4Detail',
           // permission存储数据级权限控制
           permission: ['modify', 'delete']
         }
