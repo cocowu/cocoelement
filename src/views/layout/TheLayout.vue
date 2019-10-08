@@ -50,12 +50,12 @@ export default {
 
   .page-main {
     box-sizing: border-box;
-    padding-top: 60px;
+    padding-top: 40px;
     height: 100%;
 
     .page-content {
       overflow: auto;
-      margin-left: 240px;
+      margin-left: 200px;
       height: 100%;
       background-color: #ebeef5;
     }

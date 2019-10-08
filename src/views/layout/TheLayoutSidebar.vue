@@ -1,9 +1,11 @@
 <template>
   <aside class="sidebar" :class="{'sidebar-hide': !openNav}">
-    <el-menu :default-active="selectMenu" class="sidebar-menu" :collapse="!openNav"
+    <el-menu :default-active="selectMenu" class="sidebar-menu" :collapse="!openNav" background-color="#606266"
+      text-color="white"
+      active-text-color="#42b983"
              :collapse-transition="false" :router="true">
       <template v-for="menu in user.accessMenu">
-        <el-menu-item v-if="!menu.children" :key="menu.name" :index="menu.path">
+        <el-menu-item v-if="!menu.children" :key="menu.name" :index="menu.path" class="menuitem">
           <i :class="menu.icon" v-if="menu.icon"></i>
           <span slot="title">{{menu.title}}</span>
         </el-menu-item>
@@ -35,7 +37,7 @@ export default {
 <style scoped lang="scss">
 .sidebar {
   float: left;
-  width: 240px;
+  width: 200px;
   height: 100%;
   border-right: 1px solid #e6e6e6;
   overflow: auto;
@@ -43,11 +45,16 @@ export default {
   .sidebar-menu {
     border: none;
     height: 100%;
+
   }
 }
 
 .sidebar-hide {
   width: 65px;
+}
+
+.menuitem {
+  font-size: 22px;
 }
 </style>
 

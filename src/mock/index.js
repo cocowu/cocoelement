@@ -20,18 +20,50 @@ export default {
     Mock.mock(BASE_PATH + '/api/user/info', {
       'code': 1,
       'id': '100001',
-      'name': '林锦泽',
+      'name': 'Coco',
       'roles': ['admin'],
       'permissions': [
         {
           // 一个页面一个对象，以name确定（对应静态路由表里面的name）
           name: 'index'
         }, {
-          name: 'level4'
+          name: '监测信息'
         }, {
-          name: 'level4Detail',
-          // permission存储数据级权限控制
-          permission: ['modify', 'delete']
+          name: '实时监测'
+        }, {
+          name: '地图信息'
+        }, {
+          name: '用量统计'
+        }, {
+          name: '日用量'
+        }, {
+          name: '月用量'
+        }, {
+          name: '时段用量'
+        }, {
+          name: '压力分析'
+        }, {
+          name: '日压力'
+        }, {
+          name: '月压力'
+        }, {
+          name: '信息查询'
+        }, {
+          name: '历史数据'
+        }, {
+          name: '通信日志'
+        }, {
+          name: '告警信息'
+        }, {
+          name: '流量分析'
+        }, {
+          name: '配表合理性'
+        }, {
+          name: '信息管理'
+        }, {
+          name: '设备信息'
+        }, {
+          name: '远程配置'
         }
       ]
     })

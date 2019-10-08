@@ -5,7 +5,7 @@
       <span slot="title">{{data.attrs.subMenu.title}}</span>
     </template>
     <template v-for="item in data.attrs.subMenu.children">
-      <el-menu-item v-if="!item.children" :key="item.name" :index="item.path">
+      <el-menu-item v-if="!item.children" :key="item.name" :index="item.path" class="menuitem">
         <a-icon :type="item.icon" v-if="item.icon"/>
         <span>{{item.title}}</span>
       </el-menu-item>
@@ -13,3 +13,4 @@
     </template>
   </el-submenu>
 </template>
+

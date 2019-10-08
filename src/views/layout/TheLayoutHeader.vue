@@ -1,9 +1,9 @@
 <template>
-  <el-header class="header el-button--primary">
+  <el-header height="40px" class="header el-button--primary">
     <router-link to="/index">
       <div class="logo" :class="{'logo-hide': !openNav}">
-        <img src="../../assets/logo.png" class="image"/>
-        <span class="text">LLPlatform</span>
+        <img src="../../assets/img/default_ico.png" class="image"/>
+        <span class="text">智 慧 供 水</span>
       </div>
     </router-link>
     <div class="content">
@@ -34,12 +34,17 @@ import { mapState } from 'vuex'
 
 export default {
   name: 'TheLayoutHeader',
+
+  /* 1、父组件可以使用 props 把数据传给子组件。
+  */
   props: ['openNav'],
   computed: {
     ...mapState(['user'])
   },
   methods: {
     navOpenToggle () {
+      /* 2、子组件可以使用 $emit 触发父组件的自定义事件。
+      */
       this.$emit('toggle-open')
     }
   }
@@ -48,29 +53,32 @@ export default {
 
 <style scoped lang="scss">
 .header {
-  line-height: 60px;
+  line-height: 40px;
+  height: 40px;
   color: #ffffff;
+  background-color: #606266;
 
   div {
     display: inline-block;
   }
 
   .logo {
-    width: 240px;
+    width: 200px;
     border-right: 1px solid #C0C4CC;
     margin-left: -20px;
     text-align: center;
-    font-size: 25px;
+    font-size: 16px;
     cursor: pointer;
 
     .image {
-      width: 40px;
-      height: 40px;
+      width: 32px;
+      height: 32px;
       vertical-align: middle;
     }
 
     .text {
       color: #ffffff;
+      margin-left: 20px;
     }
   }
 

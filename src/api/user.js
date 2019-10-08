@@ -30,6 +30,7 @@ export const requestUserInfo = params => {
             accessMenu.push(_aMenu)
           }
         } else {
+          /* 下面这个相当于是 if 的简写方法：a && b  ，a为真时执行b */
           res.permissions.some(p => p.name === m.name) && accessMenu.push(m)
         }
       })
