@@ -9,7 +9,7 @@
           <i :class="menu.icon" v-if="menu.icon"></i>
           <span slot="title">{{menu.title}}</span>
         </el-menu-item>
-        <the-submenu :key="menu.name" :subMenu="menu" v-else></the-submenu>
+        <the-submenu :key="menu.name" :subMenu="menu" v-else class="menuparent"></the-submenu>
       </template>
     </el-menu>
   </aside>
@@ -35,6 +35,12 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+::v-deep .el-submenu__title {
+  height: 36px;
+  line-height: 36px;
+}
+
 .sidebar {
   float: left;
   width: 200px;
@@ -54,7 +60,9 @@ export default {
 }
 
 .menuitem {
-  font-size: 22px;
+  font-size: 12px;
+  height: 36px;
+  line-height: 36px;
 }
 </style>
 
